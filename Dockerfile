@@ -4,7 +4,7 @@ FROM quay.io/keycloak/keycloak:latest
 
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
-COPY ./startup.sh /opt/keycloak/bin/startup.sh
+COPY --chown=1000:1000 ./startup.sh /opt/keycloak/bin/startup.sh
 
 ENV KC_HOSTNAME=localhost
 ENV KC_HTTP_ENABLED=true
