@@ -4,3 +4,7 @@ docker build --rm --pull -t "dave4272t/keycloak-builder:latest" ./builder
 jdbc:postgresql://dave:test@localhost:5432/postgres
 
 docker run -p 80:80 -e DATABASE_URL=jdbc:postgresql://dave:test@localhost:5432/postgres -e PORT=80 dave4272t/keycloak:latest
+
+docker run -it dave4272t/keycloak:latest sh
+
+docker run -t -i --privileged dave4272t/keycloak:latest bash
