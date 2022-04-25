@@ -36,7 +36,7 @@ ENV KC_DB=postgres
 # scripts                     Write custom authenticators using JavaScript
 # token-exchange              Token Exchange Service
 #
-ENV KC_FEATURES=docker
+#ENV KC_FEATURES=docker
 
 # metrics
 ENV KC_METRICS_ENABLED=true
@@ -47,6 +47,8 @@ ENV KC_HEALTH_ENABLED=true
 
 # secrets vault
 #ENV KC_VAULT=hashicorp
+
+ENV KC_CACHE=local
 
 RUN /opt/keycloak/bin/kc.sh build
 
