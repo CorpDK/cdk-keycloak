@@ -18,7 +18,7 @@ COPY --from=builder /certificates/idp.corpdk.com.key /certificates/idp.corpdk.co
 #     chmod 644 /certificates/idp.corpdk.com.key
 # v5.0
 
-ENV KC_HOSTNAME=localhost
+ENV KC_HOSTNAME=id-provider-personal-cdk.herokuapp.com
 ENV KC_HTTPS_CERTIFICATE_FILE=/certificates/idp.corpdk.com.crt
 ENV KC_HTTPS_CERTIFICATE_KEY_FILE=/certificates/idp.corpdk.com.key
 
