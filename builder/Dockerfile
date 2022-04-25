@@ -53,3 +53,11 @@ ENV KC_CACHE=local
 RUN /opt/keycloak/bin/kc.sh build
 
 RUN /opt/keycloak/bin/kc.sh show-config
+
+COPY --chown=1000:0 ./certs/idp.corpdk.com.crt /certificates/idp.corpdk.com.crt
+COPY --chown=1000:0 ./certs/idp.corpdk.com.key /certificates/idp.corpdk.com.key
+
+RUN chown keycloak:root /certificates/idp.corpdk.com.crt && \
+    chmod 644 /certificates/idp.corpdk.com.crt && \
+    chown keycloak:root /certificates/idp.corpdk.com.key && \
+    chmod 644 /certificates/idp.corpdk.com.key

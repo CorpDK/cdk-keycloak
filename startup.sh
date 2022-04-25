@@ -18,4 +18,4 @@ echo "KC DB USERNAME : " $KC_DB_USERNAME
 echo "KC DB PASSWORD : " $KC_DB_PASSWORD
 echo "Port : " $PORT
 echo "Starting up..."
-/opt/keycloak/bin/kc.sh start --http-port=$PORT
+/opt/keycloak/bin/kc.sh start --https-port=$PORT
