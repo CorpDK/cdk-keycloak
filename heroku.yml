@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: /startup.sh
+  web: /opt/keycloak/bin/startup.sh

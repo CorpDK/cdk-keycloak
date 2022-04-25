@@ -1,2 +1,6 @@
 docker run -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.0 start-dev
 docker build --rm --pull -t "dave4272t/keycloak-builder:latest" ./builder
+
+jdbc:postgresql://dave:test@localhost:5432/postgres
+
+docker run -p 80:80 -e DATABASE_URL=jdbc:postgresql://dave:test@localhost:5432/postgres -e PORT=80 dave4272t/keycloak:latest
