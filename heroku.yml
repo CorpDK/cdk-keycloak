@@ -1,3 +1,5 @@
 build:
   docker:
     web: Dockerfile
+run:
+  web: /opt/keycloak/bin/kc.sh start --db-url $DATABASE_URL --http-port $PORT
