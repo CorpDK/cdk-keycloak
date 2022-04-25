@@ -1,4 +1,4 @@
-FROM dave4272t/keycloak-builder AS builder
+FROM dave4272t/keycloak-builder:latest AS builder
 
 FROM quay.io/keycloak/keycloak:latest
 
