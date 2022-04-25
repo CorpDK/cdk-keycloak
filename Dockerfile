@@ -9,4 +9,4 @@ COPY ./startup.sh /startup.sh
 ENV KC_HOSTNAME=localhost
 ENV KC_HTTP_ENABLED=true
 
-ENTRYPOINT ["startup.sh"]
+ENTRYPOINT ["/startup.sh"]
