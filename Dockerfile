@@ -16,6 +16,7 @@ COPY --from=builder /certificates/idp.corpdk.com.key /certificates/idp.corpdk.co
 #     chmod 644 /certificates/idp.corpdk.com.crt && \
 #     chown keycloak:root /certificates/idp.corpdk.com.key && \
 #     chmod 644 /certificates/idp.corpdk.com.key
+#
 
 ENV KC_HOSTNAME=localhost
 ENV KC_HTTPS_CERTIFICATE_FILE=/certificates/idp.corpdk.com.crt
