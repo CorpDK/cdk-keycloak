@@ -1,8 +1,0 @@
-setup:
-  config:
-    KC_DB_URL: jdbc:$DATABASE_URL
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: /opt/keycloak/bin/startup.sh
