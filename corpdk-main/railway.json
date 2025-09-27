@@ -1,0 +1,30 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "keycloak/Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "/opt/keycloak/bin/kc.sh start",
+    "numReplicas": 1,
+    "healthcheckPath": "/health",
+    "healthcheckTimeout": 300,
+    "sleepApplication": false,
+    "runtime": "V2",
+    "restartPolicyType": "ALWAYS",
+    "multiRegionConfig": {
+      "asia-southeast1-eqsg3a": {
+        "numReplicas": 1
+      }
+    },
+    "limitOverride": {
+      "containers": {
+        "cpu": 2,
+        "memoryBytes": 4000000000,
+        "diskBytes": 5000000000
+      }
+    },
+    "requiredMountPath": "/data",
+    "useLegacyStacker": false
+  }
+}
