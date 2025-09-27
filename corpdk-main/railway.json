@@ -24,7 +24,6 @@
         "diskBytes": 5000000000
       }
     },
-    "requiredMountPath": "/data",
     "useLegacyStacker": false
   }
 }

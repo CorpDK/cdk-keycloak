@@ -15,7 +15,7 @@ ENV KC_DB=postgres \
 # ADD --chown=keycloak:keycloak https://github.com/wadahiro/keycloak-discord/releases/download/v0.5.0/keycloak-discord-0.5.0.jar /opt/keycloak/providers/keycloak-discord-0.5.0.jar
 # COPY /theme/keywind /opt/keycloak/themes/keywind
 
-RUN /opt/keycloak/bin/kc.sh build
+RUN /opt/keycloak/bin/kc.sh build && /opt/keycloak/bin/kc.sh show-config
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 
