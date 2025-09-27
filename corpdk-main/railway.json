@@ -5,7 +5,7 @@
     "dockerfilePath": "keycloak/Dockerfile"
   },
   "deploy": {
-    "startCommand": "/opt/keycloak/bin/kc.sh start --optimized --log-level=\"INFO,org.jgroups.protocols.TCP:DEBUG,org.infinispan.remoting.transport.jgroups.JGroupsTransport:TRACE\"",
+    "startCommand": "/opt/keycloak/bin/kc.sh start --optimized --log-level=\"INFO\"",
     "numReplicas": 1,
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
@@ -24,6 +24,7 @@
         "diskBytes": 5000000000
       }
     },
+    "requiredMountPath": "/data",
     "useLegacyStacker": false
   }
 }
