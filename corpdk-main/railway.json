@@ -5,7 +5,7 @@
     "dockerfilePath": "keycloak/Dockerfile"
   },
   "deploy": {
-    "startCommand": "/opt/keycloak/bin/kc.sh start --optimized",
+    "startCommand": "/opt/keycloak/bin/kc.sh start --optimized -Djgroups.bind_addr=$RAILWAY_PRIVATE_DOMAIN",
     "numReplicas": 1,
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
