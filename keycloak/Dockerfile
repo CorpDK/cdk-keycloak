@@ -25,6 +25,7 @@ LABEL author="Debraj Kundu <kundu.webdav@gmail.com>"
 
 # Runtime environment variables
 ENV JAVA_OPTS_APPEND="-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true" \
+    KC_CACHE_EMBEDDED_MTLS_ENABLED=false \
     KC_CACHE_METRICS_HISTOGRAMS_ENABLED=true \
     KC_DB_POOL_INITIAL_SIZE=0 \
     KC_DB_POOL_MAX_SIZE=10 \
