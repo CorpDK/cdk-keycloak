@@ -5,7 +5,7 @@
     "dockerfilePath": "keycloak/Dockerfile"
   },
   "deploy": {
-    "startCommand": "/opt/keycloak/bin/kc.sh start --optimized",
+    "startCommand": "/opt/keycloak/bin/kc.sh start --optimized --log-level=\"INFO,org.jgroups:TRACE,org.jgroups.protocols.JDBC_PING:TRACE,org.jgroups.protocols.TCP:TRACE,org.infinispan:DEBUG\"",
     "numReplicas": 1,
     "healthcheckPath": "/health",
     "healthcheckTimeout": 300,
