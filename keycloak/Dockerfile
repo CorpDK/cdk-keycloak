@@ -1,4 +1,4 @@
-ARG KEYCLOAK_VERSION=25.0.6
+ARG KEYCLOAK_VERSION=26.3.4
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} AS builder
 
