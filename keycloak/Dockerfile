@@ -4,10 +4,10 @@ FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} AS builder
 
 # Build-time environment variables
 ENV KC_DB=postgres \
+    KC_EVENT_METRICS_USER_ENABLED=true \
     KC_FEATURES=docker \
-    KC_HTTP_ENABLED=true \
-    KC_METRICS_ENABLED=true \
-    KC_EVENT_METRICS_USER_ENABLED=true
+    KC_HEALTH_ENABLED=true \
+    KC_METRICS_ENABLED=true
 
 # checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs
 # ADD --chown=keycloak:keycloak https://github.com/klausbetz/apple-identity-provider-keycloak/releases/download/1.7.1/apple-identity-provider-1.7.1.jar /opt/keycloak/providers/apple-identity-provider-1.7.1.jar
