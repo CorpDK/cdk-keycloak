@@ -5,7 +5,6 @@ FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} AS builder
 # Build-time environment variables
 ENV KC_DB=postgres \
     KC_FEATURES=docker \
-    KC_HEALTH_ENABLED=true \
     KC_HTTP_ENABLED=true \
     KC_METRICS_ENABLED=true \
     KC_EVENT_METRICS_USER_ENABLED=true
