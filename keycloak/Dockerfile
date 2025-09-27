@@ -23,6 +23,21 @@ LABEL name="CorpDK Keycloak"
 LABEL description="Keycloak Customized for CorpDK"
 LABEL author="Debraj Kundu <kundu.webdav@gmail.com>"
 
+# Runtime environment variables
+ENV JAVA_OPTS_APPEND="-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true" \
+    KC_CACHE_METRICS_HISTOGRAMS_ENABLED=true \
+    KC_DB_POOL_INITIAL_SIZE=0 \
+    KC_DB_POOL_MAX_SIZE=10 \
+    KC_DB_POOL_MIN_SIZE=1 \
+    KC_DB_URL_PORT=5432 \
+    KC_DB_URL_PROPERTIES="?sslmode=require" \
+    KC_HOSTNAME_BACKCHANNEL_DYNAMIC=true \
+    KC_HTTP_ENABLED=true \
+    KC_HTTP_MAX_QUEUED_REQUESTS=100 \
+    KC_HTTP_METRICS_HISTOGRAMS_ENABLED=true \
+    KC_PROXY_HEADERS=xforwarded \
+    QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY=true
+
 # COPY java.config /etc/crypto-policies/back-ends/java.config
 
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
