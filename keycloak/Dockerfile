@@ -7,12 +7,13 @@ ENV KC_DB=postgres \
     KC_FEATURES=docker \
     KC_HEALTH_ENABLED=true \
     KC_HTTP_ENABLED=true \
-    KC_METRICS_ENABLED=true
+    KC_METRICS_ENABLED=true \
+    KC_EVENT_METRICS_USER_ENABLED=true
 
 # checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs
-ADD --chown=keycloak:keycloak https://github.com/klausbetz/apple-identity-provider-keycloak/releases/download/1.7.1/apple-identity-provider-1.7.1.jar /opt/keycloak/providers/apple-identity-provider-1.7.1.jar
+# ADD --chown=keycloak:keycloak https://github.com/klausbetz/apple-identity-provider-keycloak/releases/download/1.7.1/apple-identity-provider-1.7.1.jar /opt/keycloak/providers/apple-identity-provider-1.7.1.jar
 # checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs
-ADD --chown=keycloak:keycloak https://github.com/wadahiro/keycloak-discord/releases/download/v0.5.0/keycloak-discord-0.5.0.jar /opt/keycloak/providers/keycloak-discord-0.5.0.jar
+# ADD --chown=keycloak:keycloak https://github.com/wadahiro/keycloak-discord/releases/download/v0.5.0/keycloak-discord-0.5.0.jar /opt/keycloak/providers/keycloak-discord-0.5.0.jar
 # COPY /theme/keywind /opt/keycloak/themes/keywind
 
 RUN /opt/keycloak/bin/kc.sh build
