@@ -1,5 +1,7 @@
 ARG KEYCLOAK_VERSION=26.3.4
 
+FROM quay.io/phasetwo/phasetwo-keycloak:${KEYCLOAK_VERSION} AS phasetwo
+
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} AS builder
 
 # Build-time environment variables
@@ -10,10 +12,23 @@ ENV KC_DB=postgres \
     KC_METRICS_ENABLED=true
 
 # checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs
-# ADD --chown=keycloak:keycloak https://github.com/klausbetz/apple-identity-provider-keycloak/releases/download/1.7.1/apple-identity-provider-1.7.1.jar /opt/keycloak/providers/apple-identity-provider-1.7.1.jar
-# checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs
 # ADD --chown=keycloak:keycloak https://github.com/wadahiro/keycloak-discord/releases/download/v0.5.0/keycloak-discord-0.5.0.jar /opt/keycloak/providers/keycloak-discord-0.5.0.jar
 # COPY /theme/keywind /opt/keycloak/themes/keywind
+
+# Phase 2 Providers
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/dnsjava-dnsjava-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo-phasetwo-admin-portal-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo-phasetwo-idp-wizard-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo.keycloak-keycloak-events-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo.keycloak-keycloak-magic-link-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo.keycloak-keycloak-orgs-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo.keycloak-keycloak-themes-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/org.wildfly.client-wildfly-client-config-*.jar /opt/keycloak/providers/
+
+# Additional Providers
+# checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs
+ADD --chown=keycloak:keycloak https://github.com/klausbetz/apple-identity-provider-keycloak/releases/download/1.16.0/apple-identity-provider-1.16.0.jar /opt/keycloak/providers/apple-identity-provider-1.16.0.jar
+
 
 RUN /opt/keycloak/bin/kc.sh build && /opt/keycloak/bin/kc.sh show-config
 
