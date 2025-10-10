@@ -5,6 +5,7 @@
 1. [Phase 2](https://github.com/p2-inc)
    1. [dnsjava](https://github.com/dnsjava/dnsjava)
    2. [Admin Portal](https://github.com/p2-inc/phasetwo-admin-portal)
+      1. Create the client for the portal
    3. [IdP Wizards](https://github.com/p2-inc/idp-wizard)
    4. [Events](https://github.com/p2-inc/keycloak-events)
    5. [Magic Link](https://github.com/p2-inc/keycloak-magic-link)
