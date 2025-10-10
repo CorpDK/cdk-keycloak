@@ -24,6 +24,7 @@ COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phaset
 COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo.keycloak-keycloak-orgs-*.jar /opt/keycloak/providers/
 COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/io.phasetwo.keycloak-keycloak-themes-*.jar /opt/keycloak/providers/
 COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/org.wildfly.client-wildfly-client-config-*.jar /opt/keycloak/providers/
+COPY --from=phasetwo --chown=keycloak:keycloak /opt/keycloak/providers/phasetwo-admin-ui-*.jar /opt/keycloak/providers/
 
 # Additional Providers
 # checkov:skip=CKV_DOCKER_4: ADD is appropriate for remote URLs

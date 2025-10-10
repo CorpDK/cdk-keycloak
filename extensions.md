@@ -12,5 +12,6 @@
    7. [Themes](https://github.com/p2-inc/keycloak-themes)
    8. ~~[User Migration](https://github.com/daniel-frak/keycloak-user-migration)~~
    9. [Wildfly Client Config](https://github.com/wildfly/wildfly-client-config)
+   10. [Admin UI](https://github.com/p2-inc/keycloak/tree/26.3.0_orgs_adminui_1)
 2. [Apple Identity Provider](https://github.com/klausbetz/apple-identity-provider-keycloak)
 3. 
