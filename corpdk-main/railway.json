@@ -2,7 +2,8 @@
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
     "builder": "DOCKERFILE",
-    "dockerfilePath": "keycloak/Dockerfile"
+    "dockerfilePath": "keycloak/Dockerfile",
+    "watchPatterns": ["corpdk-main/**", "keycloak/**", "!/*.md"]
   },
   "deploy": {
     "startCommand": "/opt/keycloak/bin/kc.sh start --optimized --log-level=\"INFO\"",
