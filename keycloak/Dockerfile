@@ -35,9 +35,15 @@ RUN /opt/keycloak/bin/kc.sh build && /opt/keycloak/bin/kc.sh show-config
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 
-LABEL name="CorpDK Keycloak"
-LABEL description="Keycloak Customized for CorpDK"
-LABEL author="Debraj Kundu <kundu.webdav@gmail.com>"
+ARG KEYCLOAK_VERSION=${KEYCLOAK_VERSION}
+
+LABEL org.opencontainers.image.title="CorpDK Keycloak"
+LABEL org.opencontainers.image.description="Keycloak ${KEYCLOAK_VERSION} with Phase Two enterprise extensions and Apple Identity Provider"
+LABEL org.opencontainers.image.vendor="CorpDK"
+LABEL org.opencontainers.image.authors="Debraj Kundu <kundu.webdav@gmail.com>"
+LABEL org.opencontainers.image.version="${KEYCLOAK_VERSION}"
+LABEL org.opencontainers.image.base.name="quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}"
+LABEL org.opencontainers.image.source="https://github.com/CorpDK/cdk-keycloak"
 
 # Runtime environment variables
 ENV JAVA_OPTS_APPEND="-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true" \
